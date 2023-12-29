@@ -20,9 +20,9 @@ public class userValidator {
          return Pattern.matches(regex,password) ;
      }
 
-     public  boolean isValidEmail(String email){
-         String regex="^[a-zA-Z0-9](?!.*[.][.])(?!.*[@][.])(?!.*[.][@])(?=[^@]*[@][^@]*$)[a-zA-z0-9@.+-]{3,}[a-zA-Z]{2,2}$" ;
-        return  Pattern.matches(regex,email) ;
+     public  boolean isValidEmail(String email) {
+         String regex = "^[a-zA-Z0-9]+([._%+-]{0,1}[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})?$";
+         return Pattern.matches(regex, email);
      }
      public boolean isValidPhone(String phone){
          String regex ="^[9]{1}[1]{1}\\s[1-9]{1,1}[0-9]{9}$" ;
