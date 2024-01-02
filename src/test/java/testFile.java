@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class testFile {
 
     User u = new User("Navneet" , "Kumar" , "xyz@ge.com","gsfgd#Sh5","91 7258076955") ;
-     userValidator userValidator = new userValidator() ;
+    userValidator userValidator = new userValidator() ;
     @Test
     public void testFname() {
 
@@ -30,6 +30,22 @@ public class testFile {
     public void testPhoneNo(){
 
         assertTrue(userValidator.isValidPhone(u.phoneNo));
+    }
+    @Test
+    public void testMultipleEmailHappy() {
+
+        String[] Email = {"xyz@ge.com", "xyz@1.com", "xyz@ge.com.in", "xy.ccdz@ge.com"};
+        for (String e : Email) {
+            assertTrue(userValidator.isValidEmail(e));
+        }
+    }
+    @Test
+    public void testMultipleEmailSad() {
+
+        String[] Email = {"xyz@.com", "xyz@1.com2", "xyz@gecomin", "xy.ccdz@@ge.com"};
+        for (String e : Email) {
+            assertFalse(userValidator.isValidEmail(e));
+        }
     }
 
 }
